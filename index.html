@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>日昇昌峴港旅遊</title>
+    <meta name="theme-color" content="#007AFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/826/826070.png">
+    <style>
+        :root { --primary: #007AFF; --secondary: #34C759; --accent: #FF9500; --bg: #f2f2f7; }
+        body { font-family: -apple-system, system-ui, sans-serif; background-color: var(--bg); margin: 0; padding: env(safe-area-inset-top) 15px 30px; color: #1c1c1e; line-height: 1.5; }
+        .header { background: linear-gradient(135deg, #007AFF, #0056b3); color: white; padding: 25px 20px; border-radius: 20px; text-align: center; margin-bottom: 20px; box-shadow: 0 8px 16px rgba(0,122,255,0.2); }
+        .notice { background: #fff3cd; color: #856404; padding: 10px; border-radius: 12px; font-size: 14px; margin-bottom: 12px; text-align: center; font-weight: bold; border: 1px solid #ffeeba; }
+        .day-card { background: white; border-radius: 16px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden; }
+        .day-title { padding: 18px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; font-size: 17px; }
+        .day-content { display: none; padding: 0 18px 18px; border-top: 1px solid #f2f2f7; }
+        .active .day-content { display: block; }
+        .active { border: 2px solid var(--primary); }
+        .item { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f9f9f9; }
+        .time { color: var(--primary); font-weight: 600; width: 65px; font-size: 14px; flex-shrink: 0; }
+        .desc { flex: 1; font-size: 15px; }
+        .map-link { color: white; background: var(--secondary); text-decoration: none; padding: 4px 10px; border-radius: 10px; font-size: 12px; margin-left: 8px; white-space: nowrap; }
+        .info-box { background: #f8f9fa; padding: 12px; border-radius: 10px; margin-top: 10px; font-size: 13px; border-left: 4px solid var(--accent); }
+        .hotel-tag { background: #eef7ff; padding: 10px; border-radius: 10px; margin-top: 10px; border-left: 4px solid var(--primary); font-size: 13px; }
+        .footer { text-align: center; font-size: 11px; color: #aaa; margin: 25px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🇻🇳 峴港 6 日遊</h1>
+        <p style="margin: 5px 0 0; opacity: 0.9;">2026/03/05 - 03/10</p>
+    </div>
+
+    <div class="notice">🚩 3/5 (四) 7:00 AM 保順路集合</div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="day-title">D1 · 3/5 (四) 啟程 <span>展開</span></div>
+        <div class="day-content">
+            <div class="item"><span class="time">13:15</span><span class="desc">抵達峴港機場 (DAD)</span><a href="https://www.google.com/maps/search/?api=1&query=Da+Nang+International+Airport" class="map-link">導航</a></div>
+            <div class="item"><span class="time">下午</span><span class="desc">B&B Bakery 下午茶 & 美溪海灘</span><a href="https://www.google.com/maps/search/?api=1&query=My+Khe+Beach" class="map-link">地圖</a></div>
+            <div class="item"><span class="time">晚上</span><span class="desc">自由活動</span></div>
+            <div class="info-box">🍴 午：飛機餐 | 晚：Golden Meat House 韓式烤肉</div>
+            <div class="hotel-tag"><b>🏨 Royal Lotus Hotel Danang</b><a href="https://www.google.com/maps/search/?api=1&query=Royal+Lotus+Hotel+Danang" class="map-link">飯店導航</a></div>
+        </div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="day-title">D2 · 3/6 (五) 巴拿山 <span>展開</span></div>
+        <div class="day-content">
+            <div class="item"><span class="time">09:00</span><span class="desc">出發 · 巴拿山 & 工廠參訪</span><a href="https://www.google.com/maps/search/?api=1&query=Ba+Na+Hills" class="map-link">導航</a></div>
+            <div class="item"><span class="time">17:30</span><span class="desc">山茶半島靈應寺 (至18:00)</span><a href="https://www.google.com/maps/search/?api=1&query=Linh+Ung+Pagoda" class="map-link">導航</a></div>
+            <div class="item"><span class="time">晚上</span><span class="desc">自由活動</span></div>
+            <div class="info-box">🍴 午：自理(發300元) | 晚：Madame Lan 或 YES Buffet<br>🚐 交通：豪華小巴</div>
+            <div class="hotel-tag"><b>🏨 Royal Lotus Hotel Danang</b></div>
+        </div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="day-title">D3 · 3/7 (六) 順化古都 <span>展開</span></div>
+        <div class="day-content">
+            <div class="item"><span class="time">08:30</span><span class="desc">出發 · 順化古蹟群 & 水春香村</span><a href="https://www.google.com/maps/search/?api=1&query=Thuy+Xuan+Incense-making+Village" class="map-link">地圖</a></div>
+            <div class="item"><span class="time">中午</span><span class="desc">順化皇宮巡禮</span><a href="https://www.google.com/maps/search/?api=1&query=The+Imperial+City+Hue" class="map-link">導航</a></div>
+            <div class="item"><span class="time">18:30</span><span class="desc">龍橋夜市 (至19:45)</span><a href="https://www.google.com/maps/search/?api=1&query=Dragon+Bridge+Night+Market" class="map-link">地圖</a></div>
+            <div class="item"><span class="time">20:00</span><span class="desc">漢江遊船 (至21:30)</span></div>
+            <div class="info-box">🍴 午：順化小吃 | 晚(15:30)：Lang Go 海鮮</div>
+            <div class="hotel-tag"><b>🏨 Royal Lotus Hotel Danang</b></div>
+        </div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="day-title">D4 · 3/8 (日) 文化遺產 <span>展開</span></div>
+        <div class="day-content">
+            <div class="item"><span class="time">09:00</span><span class="desc">出發 · 美山遺址</span><a href="https://www.google.com/maps/search/?api=1&query=My+Son+Sanctuary" class="map-link">導航</a></div>
+            <div class="item"><span class="time">下午</span><span class="desc">迦南島碗公船體驗</span><a href="https://www.google.com/maps/search/?api=1&query=Cam+Thanh+Coconut+Village" class="map-link">地圖</a></div>
+            <div class="item"><span class="time">晚上</span><span class="desc">會安古鎮 & 夜市散策</span><a href="https://www.google.com/maps/search/?api=1&query=Hoi+An+Ancient+Town" class="map-link">導航</a></div>
+            <div class="info-box">🍴 午：途中餐 | 晚：Morning Glory Original</div>
+            <div class="hotel-tag"><b>🏨 River Suites Hoi An</b><a href="https://www.google.com/maps/search/?api=1&query=River+Suites+Hoi+An" class="map-link">飯店導航</a></div>
+        </div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="day-title">D5 · 3/9 (一) 市區巡禮 <span>展開</span></div>
+        <div class="day-content">
+            <div class="item"><span class="time">10:00</span><span class="desc">五行山 & 樂天超市</span><a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Da+Nang" class="map-link">地圖</a></div>
+            <div class="item"><span class="time">下午</span><span class="desc">粉紅教堂 & 漢市場購物</span><a href="https://www.google.com/maps/search/?api=1&query=Han+Market" class="map-link">地圖</a></div>
+            <div class="item"><span class="time">晚上</span><span class="desc">自由活動</span></div>
+            <div class="info-box">🍴 午：Sangha 素食餐廳 | 晚：4P’s PIZZA</div>
+            <div class="hotel-tag"><b>🏨 Satya Da Nang Hotel</b><a href="https://www.google.com/maps/search/?api=1&query=Satya+Da+Nang+Hotel" class="map-link">飯店導航</a></div>
+        </div>
+    </div>
+
+    <div class="day-card" onclick="toggleDay(this)">
+        <div class="day-title">D6 · 3/10 (二) 返家 <span>展開</span></div>
+        <div class="day-content">
+            <div class="item"><span class="time">上午</span><span class="desc">飯店自由活動</span></div>
+            <div class="item"><span class="time">10:45</span><span class="desc">前往機場 (約15分車程)</span></div>
+            <div class="item"><span class="time">13:00</span><span class="desc">峴港起飛 (16:50 抵台)</span></div>
+            <div class="info-box">🍴 午：飛機餐</div>
+        </div>
+    </div>
+
+    <p class="footer">© 2026 日昇昌越南之旅 · 祝您旅途愉快</p>
+
+    <script>
+        function toggleDay(el) {
+            const isActive = el.classList.contains('active');
+            document.querySelectorAll('.day-card').forEach(card => card.classList.remove('active'));
+            if (!isActive) el.classList.add('active');
+        }
+    </script>
+</body>
+</html>
